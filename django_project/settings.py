@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.flatpages',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'djangobin',
     'pygments',
+
 
 ]
 
@@ -153,3 +157,4 @@ LOGIN_REDIRECT_URL = 'djangobin:index'
 
 LOGIN_URL = 'djangobin:login'
 
+SITE_ID = 1

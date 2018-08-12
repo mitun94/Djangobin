@@ -1,6 +1,14 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+from django.contrib.sitemaps.views import sitemap
 from . import views
+from .sitemaps import SnippetSitemap, FlatPageSitemap
+
+
+sitemaps = {
+    'snippets': SnippetSitemap,
+    'flatpages': FlatPageSitemap,
+}
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -32,7 +40,9 @@ urlpatterns = [
     url('^settings/$', views.settings, name='settings'),
     url('^delete/(?P<snippet_slug>[\d]+)/$', views.delete_snippet, name='delete_snippet'),
     url('^search/$', views.search, name='search'),
-
-
-
+    url(r'^sitemap\.xml/$', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
 ]
+
+
+
+
